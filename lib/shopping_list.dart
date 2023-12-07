@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'shopping_item.dart';
 
 class ShoppingList extends StatefulWidget {
   @override
@@ -208,8 +209,8 @@ class _ShoppingListState extends State<ShoppingList> {
         TextEditingController(text: item.description);
     TextEditingController quantityController =
         TextEditingController(text: item.quantity.toString());
-    TextEditingController priceController =
-        TextEditingController(text: item.price.toString());
+    /*TextEditingController priceController =
+        TextEditingController(text: item.price.toString());*/
 
     await showDialog(
       context: context,
@@ -226,11 +227,11 @@ class _ShoppingListState extends State<ShoppingList> {
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(labelText: 'Quantidade'),
             ),
-            TextField(
+            /*TextField(
               controller: priceController,
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(labelText: 'Preço'),
-            ),
+            ),*/
           ],
         ),
         actions: [
