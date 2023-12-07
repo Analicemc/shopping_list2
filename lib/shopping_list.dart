@@ -246,7 +246,7 @@ class _ShoppingListState extends State<ShoppingList> {
               setState(() {
                 item.description = descriptionController.text;
                 item.quantity = int.parse(quantityController.text);
-                item.price = double.parse(priceController.text);
+                /*item.price = double.parse(priceController.text);*/
               });
               Navigator.pop(context);
             },
