@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'shopping_list.dart';
+import 'shopping_list_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ShoppingList(),
+      home: ShoppingListScreen(),
     );
   }
 }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'shopping_item.dart';
+import 'models/shopping_item.dart';
 
-class ShoppingList extends StatefulWidget {
+class ShoppingListScreen extends StatefulWidget {
   @override
-  _ShoppingListState createState() => _ShoppingListState();
+  _ShoppingListScreenState createState() => _ShoppingListScreenState();
 }
 
-class _ShoppingListState extends State<ShoppingList> {
+class _ShoppingListScreenState extends State<ShoppingListScreen> {
   List<ShoppingItem> _items = [];
   double _totalPrice = 0.0;
 
@@ -19,7 +19,7 @@ class _ShoppingListState extends State<ShoppingList> {
         body: ListView.builder(
           itemCount: _items.length,
           itemBuilder: (context, index) {
-            return _buildShoppingListItem(_items[index]);
+            return _buildShoppingListScreenItem(_items[index]);
           },
         ),
         floatingActionButton: FloatingActionButton(
@@ -31,10 +31,16 @@ class _ShoppingListState extends State<ShoppingList> {
         bottomNavigationBar: _buildTotalSection(_totalPrice));
   }
 
-  Widget _buildShoppingListItem(ShoppingItem item) {
+  Widget _buildShoppingListScreenItem(ShoppingItem item) {
     return Column(
       children: [
         ListTile(
+          leading: Checkbox(
+                value: item.isBought,
+                onChanged: (value) {
+                  _updateItemStatus(item);
+                },
+              ),
           title: Text(
             item.description,
             style: TextStyle(
@@ -59,12 +65,6 @@ class _ShoppingListState extends State<ShoppingList> {
                 color: Colors.red,
                 onPressed: () {
                   _showDeleteConfirmationDialog(item);
-                },
-              ),
-              Checkbox(
-                value: item.isBought,
-                onChanged: (value) {
-                  _updateItemStatus(item);
                 },
               ),
             ],
