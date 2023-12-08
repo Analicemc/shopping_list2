@@ -8,7 +8,7 @@
 
 ## 🗒️ Diagrams
 
-![imagem-de-apresentacao](https://ik.imagekit.io/ghmg33v8b/projects/shopping-list/shopping-list-diagrams_AjloStECV.png?updatedAt=1702049146566)</p>
+![imagem-de-apresentacao](https://ik.imagekit.io/ghmg33v8b/projects/shopping-list/shopping-list-diagrams_zd3W8-NHZ.png?updatedAt=1702049672230)</p>
 
 ## 🧰 Prerequisites
 <p>Flutter SDK</p>
