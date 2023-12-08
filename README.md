@@ -1,16 +1,35 @@
-# shopping_list2
+## 🛍️ Shopping List - Making Your Purchases Easier
+<p>This repository was developed for academic purposes for the mobile development discipline using the Flutter tool</p>
 
-A new Flutter project.
+![imagem-de-apresentacao](https://ik.imagekit.io/ghmg33v8b/projects/shopping-list/shopping-list_K0Dd74gQF.png?updatedAt=1702047998292)
 
-## Getting Started
+## 🌐 Status
+<p>Finished project ✅</p>
 
-This project is a starting point for a Flutter application.
+## 🗒️ Diagrams
 
-A few resources to get you started if this is your first Flutter project:
+![imagem-de-apresentacao](https://ik.imagekit.io/ghmg33v8b/projects/shopping-list/shopping-list-diagrams_AjloStECV.png?updatedAt=1702049146566)</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🧰 Prerequisites
+<p>Flutter SDK</p>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p>Dart SDK</p>
+
+<p>Android Studio</p>
+
+## 🔧 Installation
+`$ git clone https://github.com/Analicemc/shopping_list2.git`
+
+<strong>Open the project folder in your Android Studio, install the necessary SDKs and run the emulator!</strong>
+
+## 🔨 Tools used
+
+<div>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" width="80" /> 
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" width="80" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" width="80" />
+</div>
+
+<hr>
+
+Developed by Allan Dutra and Analice Mendes!
