@@ -42,7 +42,16 @@ class _ShoppingListState extends State<ShoppingList> {
               color: item.isBought ? Colors.grey : Colors.black,
             ),
           ),
-          subtitle: Text('Quantidade: ${item.quantity}'),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Quantidade: ${item.quantity}'),
+              Text('Preço unitário: ${item.unitPrice
+                  != null && item.unitPrice != 0 ? 'R\$ ${item.unitPrice}' : 'N/A'}'),
+              Text('Preço total: ${item.totalPrice
+                  != null && item.totalPrice != 0 ? 'R\$ ${item.totalPrice}' : 'N/A'}')
+            ],
+          ),
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -155,7 +164,7 @@ class _ShoppingListState extends State<ShoppingList> {
 
   void _removeItem(ShoppingItem item) {
     setState(() {
-      _totalPrice -= item.price;
+      _totalPrice -= item.totalPrice;
       _items.remove(item);
     });
   }
@@ -165,9 +174,10 @@ class _ShoppingListState extends State<ShoppingList> {
 
     if (item.isBought) {
       setState(() {
-        _totalPrice -= item.price;
+        _totalPrice -= item.totalPrice;
         item.isBought = false;
-        item.price = 0;
+        item.unitPrice = 0;
+        item.totalPrice = 0;
       });
       return;
     }
@@ -179,7 +189,7 @@ class _ShoppingListState extends State<ShoppingList> {
         content: TextField(
           controller: priceController,
           keyboardType: TextInputType.number,
-          decoration: InputDecoration(labelText: 'Preço'),
+          decoration: InputDecoration(labelText: 'Preço unitário'),
         ),
         actions: [
           TextButton(
@@ -192,8 +202,9 @@ class _ShoppingListState extends State<ShoppingList> {
             onPressed: () {
               setState(() {
                 item.isBought = true;
-                item.price = double.parse(priceController.text);
-                _totalPrice += item.price;
+                item.unitPrice = double.parse(priceController.text);
+                item.totalPrice = item.quantity * item.unitPrice;
+                _totalPrice += item.totalPrice;
               });
               Navigator.pop(context);
             },
@@ -246,6 +257,13 @@ class _ShoppingListState extends State<ShoppingList> {
               setState(() {
                 item.description = descriptionController.text;
                 item.quantity = int.parse(quantityController.text);
+
+                if (item.isBought)
+                {
+                  _totalPrice -= item.totalPrice;
+                  item.totalPrice = item.quantity * item.unitPrice;
+                  _totalPrice += item.totalPrice;
+                }
                 /*item.price = double.parse(priceController.text);*/
               });
               Navigator.pop(context);
