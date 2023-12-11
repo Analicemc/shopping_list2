@@ -49,7 +49,7 @@ class _ShoppingListState extends State<ShoppingList> {
               Text('Preço unitário: ${item.unitPrice
                   != null && item.unitPrice != 0 ? 'R\$ ${item.unitPrice}' : 'N/A'}'),
               Text('Preço total: ${item.totalPrice
-                  != null && item.totalPrice != 0 ? 'R\$ ${item.totalPrice}' : 'N/A'}')
+                  != null && item.totalPrice != 0 ? 'R\$ ${item.totalPrice}' : 'N/A'}', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),)
             ],
           ),
           trailing: Row(
@@ -202,7 +202,7 @@ class _ShoppingListState extends State<ShoppingList> {
             onPressed: () {
               setState(() {
                 item.isBought = true;
-                item.unitPrice = double.parse(priceController.text);
+                item.unitPrice = double.parse(priceController.text.replaceAll(',', '.'));
                 item.totalPrice = item.quantity * item.unitPrice;
                 _totalPrice += item.totalPrice;
               });
@@ -282,7 +282,7 @@ class _ShoppingListState extends State<ShoppingList> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text('Total da compra: R\$ $_totalPrice'),
+          Text('Total da compra: R\$ $_totalPrice', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
         ],
       ),
     );
